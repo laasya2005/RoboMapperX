@@ -1,5 +1,5 @@
 # Object Detection using Deep Learning
-In our project, the YOLO algorithm was used for object detection to detect our target object - 'husky'. The ImageAI implementation of the YOLOv3 convolutional neural network was used for this. The model was trained on Google Colab (K80 GPU) using manually generated images of the target object 'husky' with noise objects in the background. These images were generated in the pybullet simulator. 
+In this project, the YOLO algorithm was used for object detection to detect the target object - 'husky'. The ImageAI implementation of the YOLOv3 convolutional neural network was used for this. The model was trained on Google Colab (K80 GPU) using manually generated images of the target object 'husky' with noise objects in the background. These images were generated in the pybullet simulator. 
 
 ## Training Images
 The image dataset on which the model was trained was prepared manually using the pybullet simulator. Various kinds of images of the target object 'husky' were taken in different orientations, different environments and from different distances. Different objects were put in the background as noise, so that our model is able to differentiate between 'husky and other objects. 
