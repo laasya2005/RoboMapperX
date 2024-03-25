@@ -1,28 +1,25 @@
-# Object Detection using Deep Learning
-In this project, the YOLO algorithm was used for object detection to detect the target object - 'husky'. The ImageAI implementation of the YOLOv3 convolutional neural network was used for this. The model was trained on Google Colab (K80 GPU) using manually generated images of the target object 'husky' with noise objects in the background. These images were generated in the pybullet simulator. 
+### Object Detection using Deep Learning
+In this project, I utilized the YOLO algorithm for object detection, specifically targeting the object 'husky.' I implemented the YOLOv3 convolutional neural network using ImageAI to achieve this task. Training was conducted on Google Colab with a K80 GPU, leveraging manually generated images of the 'husky' object along with background noise objects simulated in the pybullet simulator.
 
-## Training Images
-The image dataset on which the model was trained was prepared manually using the pybullet simulator. Various kinds of images of the target object 'husky' were taken in different orientations, different environments and from different distances. Different objects were put in the background as noise, so that our model is able to differentiate between 'husky and other objects. 
-
-<p align="center">
- <img  width="400" height="400" src="https://github.com/Terabyte17/Autonomous-Room-Mapping-Robot/blob/master/Object%20Detection%20Model/husky%20(2).png">
-</p>
-
-## Labelling of images
-For object detection using YOLOv3, bounding boxes were to be made around the target object in each image. This was done using the LabelImg tool which can be found at - https://github.com/tzutalin/labelImg#labelimg. This tool was used to generate annotations for each image in the PascalVOC format. Around 1300+ images were made and labelled using this.
+### Training Images
+The training dataset was meticulously prepared using the pybullet simulator, encompassing various orientations, environments, and distances for the 'husky' object. The inclusion of diverse background objects as noise facilitated the model's ability to distinguish 'husky' from other objects.
 
 <p align="center">
- <img  width="400" height="250" src="https://github.com/Terabyte17/Autonomous-Room-Mapping-Robot/blob/master/Object%20Detection%20Model/LabelImg.png">
+ <img  width="400" height="400" src="https://github.com/laasya2005/RoboMapperX/blob/main/Object%20Detection%20Model/husky%20(2).png">
 </p>
 
-
-## Model Training
-ImageAI is a powerful python library which provides various Computer Vision capabilities using deep learning. Hence, we decided to make use of the YOLOv3 Object Detection algorithm to train our model. Before training, anchor boxes were generated with an IoU(Intersection Over Union) of 0.9. We saw, that transfer learning gave us better results rather than training our model from scratch. Hence, we trained the pre-trained model to detect 'husky'. A batch size of 4 was used with the 5 epochs over which the model was trained. It took around 3 hrs to train the model. Our model was evaluated and it gave us mAP(Mean Average Precision) of 0.9668.
+### Labeling of Images
+For YOLOv3 object detection, bounding boxes were annotated around the 'husky' object in each image. The LabelImg tool, available at GitHub - LabelImg, was utilized for this task. Approximately 1300+ images were annotated in the PascalVOC format using this tool.
 
 <p align="center">
- <img  width="400" height="400" src="https://github.com/Terabyte17/Autonomous-Room-Mapping-Robot/blob/master/Object%20Detection%20Model/Husky_detected.png">
+ <img  width="400" height="250" src="https://github.com/laasya2005/RoboMapperX/blob/main/Object%20Detection%20Model/labelimg.png">
 </p>
 
-You can find the ImageAI github repo here - https://github.com/OlafenwaMoses/ImageAI. The detection_config.json file in which the acnhor boxes are stored has been also provided in the repo. However, due to github size constraints, the model .h5 file could not be loaded. Hence, you can see the model .h5 file along with the training and validation images and annotations here - https://drive.google.com/drive/folders/1KFqMZFUNzZ-NAC3F-uDEITPFsUmESCaP?usp=sharing. Before running the main script, you need to download the model file - detection_model-ex-005--loss-0004.657.h5 present in the models folder of the google drive folder. 
+### Model Training
+Employing the ImageAI library, which offers powerful Computer Vision capabilities through deep learning, I trained the YOLOv3 Object Detection algorithm. Before training, anchor boxes were generated with an IoU (Intersection Over Union) of 0.9. Transfer learning yielded superior results compared to training from scratch, so I fine-tuned the pre-trained model to detect 'husky.' The model was trained over 5 epochs with a batch size of 4, taking approximately 3 hours. Evaluation of the model resulted in an mAP (Mean Average Precision) of 0.9668.
 
-Note:- For training the model, you require the tensorflow-gpu==1.13.1 version and the latest version of imageAI.
+<p align="center">
+ <img  width="400" height="400" src="https://github.com/laasya2005/RoboMapperX/blob/main/Object%20Detection%20Model/Husky_detected.png">
+</p>
+
+The ImageAI GitHub repository can be found at GitHub - ImageAI. The detection_config.json file containing anchor boxes is provided in the repository. However, due to size constraints on GitHub, the model .h5 file is hosted separately at Google Drive - Model and Data Files. Please ensure to download the model file (detection_model-ex-005--loss-0004.657.h5) from the models folder on Google Drive before running the main script. Note that tensorflow-gpu==1.13.1 and the latest version of ImageAI are required for model training.
